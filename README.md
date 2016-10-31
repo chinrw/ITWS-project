@@ -1,5 +1,7 @@
 # BBS website
 ## Notes from Group Meeting
 ### 10/24
-- TeX (Based on KaTeX);
+- Everyone now has access to the server
+
 ### 10/31
+- Everyone knows waht to do
