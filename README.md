@@ -1,9 +1,5 @@
 # BBS website
-sssscsd a]sd
- a
- sd
-  a
-  sd 
-  a
-  sd
-  asdasd asd 
+## Notes from Group Meeting
+ 
+### 10/24
+  * Everyone now has access to the server
