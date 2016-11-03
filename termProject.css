@@ -1,0 +1,83 @@
+/* Term Project, Group 3, CSS File */
+  /* Sumbit Button right, about footer bar*/
+html{
+  height: 100%;
+}
+ 
+body{
+	font-family: Arial, Helvetica, sans-serif; 
+	background-color:#ddd;
+	width: 800px;
+	min-height: 100%;
+}
+
+#logo:hover{
+	cursor: pointer; 
+}
+
+#logo{
+	width:30px;height:50px;
+    margin: 3px;
+}
+
+h1{
+	font-family: 'Bad Script', cursive;
+	margin: 3px;
+}
+
+footer{
+	clear: both;
+	position:relative; 
+	bottom: 0%;
+	height: 15px;
+	border-width: 2px;
+	border-color: #ccc;
+	border-style: solid;
+	background-color: #fff;
+	text-align: center;
+}
+
+.content{
+	border-width: 2px;
+	border-color: #ccc;
+	border-style: solid;
+	background-color: #fff;
+    padding: 3px;
+	margin-top: 3px;
+	margin-bottom: 3px;	
+} 
+
+.flag{
+	margin: 3px;
+	float: right;
+	color: #4CAF50; /* dark green */
+}
+
+#date{
+	font-family: 'Bad Script', cursive;
+}
+
+.submitButton{
+	margin: 0% 0% 0% 27%;
+
+}
+
+#commentBox{
+	margin: 3px;
+	clear: both;
+}
+
+#pastEntries{	
+	margin: 6px;
+	padding: 3px;
+}
+
+#bodyBlock{
+	height: auto;
+	min-height: 100%;
+}
+
+html, body, #bodyBlock {
+	height: 100%; 
+}
+
