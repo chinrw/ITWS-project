@@ -4,14 +4,23 @@ function clearComments(textVar){
 	textVar.value="";
 }
 
-function flagPost(){
-	alert("This post has been flagged,thank you for your input.");
-	document.getElementsByClassName("flag").style.color = "#ff0000";
-}
+$(document).ready(function(){
+	$('.flag').click(function(){
+		if ($(this).hasClass("flagged")){
+			$(this).html("Flag");  
+		}
+
+		else{
+			$(this).html("Flagged")
+		}
+
+	$(this).toggleClass("flagged");
+	});
+});
 
 function addingtextbackin(textVar){
 	if(textVar.value=="")
-		textVar.value="...";
+	textVar.value="...";
 }
 	
 function saveUserInfo()
