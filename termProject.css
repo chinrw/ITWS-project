@@ -3,12 +3,18 @@
 html{
   height: 100%;
 }
- 
+
 body{
 	font-family: Arial, Helvetica, sans-serif; 
-	background-color:#ddd;
+	background-image: url("background.png");
+	background-repeat: no-repeat;
+	background-size: 50% 60%; /* X,Y width Height */
+	background-position: right bottom;
+	background-attachment: fixed;
+	background-color: #cccccc; /*light Grey*/
 	width: 800px;
 	min-height: 100%;
+	position: relative;
 }
 
 #logo:hover{
@@ -16,18 +22,20 @@ body{
 }
 
 #logo{
-	width:30px;height:50px;
-    margin: 3px;
+	width:3%;
+	height:5%;
+	margin: 1% 1% 1% 1%;
 }
 
 h1{
 	font-family: 'Bad Script', cursive;
-	margin: 3px;
+	margin: 1% 1% 1% 1%;
 }
 
 footer{
 	clear: both;
-	position:relative; 
+	position:fixed; 
+	width: 100%;
 	bottom: 0%;
 	height: 15px;
 	border-width: 2px;
@@ -35,41 +43,69 @@ footer{
 	border-style: solid;
 	background-color: #fff;
 	text-align: center;
+	margin-top: -30px;
 }
 
 .content{
-	border-width: 2px;
+	border-width: 1px;
 	border-color: #ccc;
 	border-style: solid;
 	background-color: #fff;
-    padding: 3px;
-	margin-top: 3px;
-	margin-bottom: 3px;	
+	padding: 1%;
+	margin-top: 1%;
+	margin-bottom: 1%;	
+	border-radius: 14px;
 } 
 
+
 .flag{
-	margin: 3px;
+	margin: 1%;
 	float: right;
-	color: #4CAF50; /* dark green */
+	color: #4CAF50; /* Dark green */
 }
+
+.flagged{
+	margin: 1%;
+	float: right;
+	color: #8B0000; /* Dark red */
+	
+}
+.sortButton{
+	margin: 1% 1% 1% 1%;
+	float: right;
+}
+
+
 
 #date{
 	font-family: 'Bad Script', cursive;
 }
+#comments{
+	border-radius: 14px;
+	resize: none;
+	padding: 1%;
+	width: 98%;
+}
 
 .submitButton{
-	margin: 0% 0% 0% 27%;
+	margin: 0% 1% 0% 1%;
+	float: right;
+}
 
+.tagButton{
+	margin: 0% 1% 0% 1%;
 }
 
 #commentBox{
-	margin: 3px;
+	margin: 1%;
 	clear: both;
 }
 
-#pastEntries{	
-	margin: 6px;
-	padding: 3px;
+#wholeBox{
+	background-color: #bbbbbb; /* Very Light Grey */	
+	border-radius: 14px;
+	margin: 1%;
+	padding: .5%;
 }
 
 #bodyBlock{
@@ -78,6 +114,8 @@ footer{
 }
 
 html, body, #bodyBlock {
-	height: 100%; 
+	margin: 0;
+	height: 100%;
+	width: 95%;
 }
 
