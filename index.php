@@ -9,7 +9,7 @@
   mysql_set_charset('utf8');
   ?>
     <title>Term Project</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="termProject.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
     <script src="jquery-3.1.1.min.js" ></script>
@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    
+
     <div id="bodyBlock">
       <h1><a href="index.php"><img id="logo" src="logo.gif"></a>Just putting it out there</h1>
       <div id="wholeBox" >
@@ -55,15 +55,15 @@
         <button class="sortButton" type="button">Sort By Tag(s)</button>
       </form>
       </div>
-      
-       
-   
+
+
+
       <div id="pastEntries">
 
        <?php
             $display_query = mysql_query("select * from comment order by id desc;");
             while($row= mysql_fetch_array($display_query)) {
-                $datum= array(); 
+                $datum= array();
                 $datum["content"] = $row["content"];
                 $datum["time"]  = $row["time"];
                 $datum["tags"]  = $row["tags"];
@@ -71,11 +71,11 @@
 
         <div class="content">
           <p><?php echo $datum["content"];?></p>
-          <Span id="date" ><?php echo $datum["time"];?></span> 
+          <Span id="date" ><?php echo $datum["time"];?></span>
           <button class="flag"  type="submit" >Flag</button>
           <div style= "clear:both" ></div>
         </div>
-        <?php   
+        <?php
         }
         ?>
 
@@ -84,12 +84,13 @@
       <div style="clear: both"></div>
     </div>
 
-    <footer> 
+    <footer>
       <a href="aboutPage.html" id="aboutPage">About Page</a>
       <a href="contactUs.html" id="contactUs">Contact Us</a>
-      <a href="index.html" id="home">Home</a>    
+      <a href="index.php" id="home">Home</a>
     </footer>
 
+<<<<<<< HEAD
 <?php
 
     function injectChk($sql_str) { 
@@ -128,8 +129,10 @@
 
 ?>
     
+=======
+>>>>>>> master
   </body>
-  
-</html> 
+
+</html>
 
 
