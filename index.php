@@ -1,6 +1,6 @@
 <!--Term Project, Group 3, Home Page !-->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<htmlxmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE HTML>
+<html>
 
   <head>
   <?php
@@ -19,36 +19,39 @@
   <body>
 
     <div id="bodyBlock">
-      <h1><a href="index.html"><img id="logo" src="logo.gif"></a>Just putting it out there</h1>
+      <h1><a href="index.php"><img id="logo" src="logo.gif"></a>Just putting it out there</h1>
       <div id="wholeBox" >
+       <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <div id="commentBox">
           <label for="comments" class="field">What is on you're mind?</label>
           <div class="value"> <textarea rows="4" name="comments" id="comments" onblur="return addingtextbackin(this)" onclick="return clearComments(this)">...</textarea></div>
         </div>
 
         <div>
-        <form action="">
-          <input type="checkbox" name="vehicle" value="tag 1">Love
-          <input type="checkbox" name="vehicle" value="tag 2">Family
-          <input type="checkbox" name="vehicle" value="tag 3">Pets
-          <input type="checkbox" name="vehicle" value="tag 4">School
-          <input type="checkbox" name="vehicle" value="tag 5">Work
-          <input type="checkbox" name="vehicle" value="tag 5">Children
-          <button class="submitButton" type="button" onclick="saveUserInfo(); ">Submit</button>
-        </form>
+       
+          <input type="checkbox" name="vehicle[]" value="Love">Love
+          <input type="checkbox" name="vehicle[]" value="Family">Family
+          <input type="checkbox" name="vehicle[]" value="Pets">Pets
+          <input type="checkbox" name="vehicle[]" value="School">School
+          <input type="checkbox" name="vehicle[]" value="Work">Work
+          <input type="checkbox" name="vehicle[]" value="Children">Children
+          <!--<button class="submitButton" type="button" onclick="saveUserInfo(); ">Submit</button>  -->
+          <input class="submitButton" type="submit" value="Submit" name="submit"/>
+        
         </div>
+        </form>
 
       </div>
 
       <div>
        <h1>Past Content</h1>
        <form action="">
-        <input type="checkbox" name="vehicle" value="tag 1">Love
-        <input type="checkbox" name="vehicle" value="tag 2">Family
-        <input type="checkbox" name="vehicle" value="tag 3">Pets
-        <input type="checkbox" name="vehicle" value="tag 4">School
-        <input type="checkbox" name="vehicle" value="tag 5">Work
-        <input type="checkbox" name="vehicle" value="tag 5">Children
+        <input type="checkbox" name="vehicle" value="Love">Love
+        <input type="checkbox" name="vehicle" value="Family">Family
+        <input type="checkbox" name="vehicle" value="Pets">Pets
+        <input type="checkbox" name="vehicle" value="School">School
+        <input type="checkbox" name="vehicle" value="Work">Work
+        <input type="checkbox" name="vehicle" value="Children">Children
         <button class="sortButton" type="button">Sort By Tag(s)</button>
       </form>
       </div>
@@ -87,6 +90,47 @@
       <a href="index.php" id="home">Home</a>
     </footer>
 
+<<<<<<< HEAD
+<?php
+
+    function injectChk($sql_str) { 
+        $check = eregi('select|insert|update|delete|\'|\/\*|\*|\.\.\/|\.\/|union|into|load_file|outfile', $sql_str);
+        if ($check) {
+          echo('failed');
+          exit ();
+        } else {
+          return $sql_str;
+        }
+    }
+
+
+    if (isset($_POST['submit'])) {
+        $comments = injectChk($_POST['comments']);
+        $tags = "";
+        if(!empty($_POST['vehicle'])) {
+          // Counting number of checked checkboxes.
+            // $checked_count = count($_POST['vehicle']);
+            // echo "You have selected following ".$checked_count." option(s): <br/>";
+          // Loop to store and display values of individual checked checkbox.
+            foreach($_POST['vehicle'] as $selected) {
+              $tags=$tags.$selected."*&^%|";
+            }
+        }else{
+            $tags = "";
+        }
+        $tags=rtrim($tags,"*&^%|");
+
+        $q1 = mysql_query("insert into comment(`content`,`tags`) values('$comments','$tags')");
+        echo '<script language="javascript">';
+        echo 'alert("Success!")';
+        echo '</script>';
+    }
+
+
+?>
+    
+=======
+>>>>>>> master
   </body>
 
 </html>
