@@ -32,6 +32,11 @@ $(document).ready(function(){
        			alert("You should select at least one tag!");
        			return false;
        		}
+ 
+       		if( tags.indexOf(".notag") != -1 && tags != ".notag"){
+       			alert("You can not select 'No tag' and another tag!");
+       			return false;
+       		}
 
 
             $(".content").hide().filter(tags).show();

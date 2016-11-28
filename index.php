@@ -46,13 +46,23 @@
       <div>
        <h1>Past Content</h1>
        <form action="">
-        <input type="checkbox" name="sorttags" value="Love">Love
-        <input type="checkbox" name="sorttags" value="Family">Family
-        <input type="checkbox" name="sorttags" value="Pets">Pets
-        <input type="checkbox" name="sorttags" value="School">School
-        <input type="checkbox" name="sorttags" value="Work">Work
-        <input type="checkbox" name="sorttags" value="Children">Children
-        <button class="sortButton" type="button" id="sortButton">Sort By Tag(s)</button>
+       
+        <input type="checkbox" name="sorttags" value="Love" id="Love">
+        <label for="Love">Love</label>
+        <input type="checkbox" name="sorttags" value="Family" id="Family">
+        <label for="Family">Family</label>
+        <input type="checkbox" name="sorttags" value="Pets" id="Pets">
+        <label for="Pets">Pets</label>
+        <input type="checkbox" name="sorttags" value="School" id="School">
+        <label for="School">School</label>
+        <input type="checkbox" name="sorttags" value="Work" id="Work">
+        <label for="Work">Work</label>
+        <input type="checkbox" name="sorttags" value="Children" id="Children">
+        <label for="Children">Children</label>
+        <input type="checkbox" name="sorttags" value="notag" id="notag">
+        <label for="notag">No tag</label>
+
+        <button class="sortButton" type="button" id="sortButton" >Sort By Tag(s)</button>
         <button class="sortButton" type="button" id="reset">Show all</button>
 
       </form>
@@ -69,16 +79,22 @@
                 $datum["content"] = $row["content"];
                 $datum["time"]  = $row["time"];
                 $datum["tags"]  = $row["tags"];
+                $datum["flag"]  = $row["flag"];
+                if ($datum["flag"] < 2) {
+                  # code...
+                
 
                 $tagstr = str_replace("|"," ",$datum["tags"]);
-                
+                if ($tagstr == "") {
+                  $tagstr = "notag";
+                }
                 
         ?>
 
         <div class="<?php echo 'content '.$tagstr; ?>">
           <p><?php echo $datum["content"];?></p>
           <p style="font-size: 0.9em"><?php 
-            if ($tagstr == "") {
+            if ($tagstr == "notag") {
               $tagstr = "No tags";
             } else{
               $tagstr = "TAG: ".$tagstr;
@@ -90,7 +106,7 @@
           <div style= "clear:both" ></div>
         </div>
         <?php
-        }
+        }}
         ?>
 
 
@@ -130,7 +146,7 @@
             $tags = "";
         }
         $tags=rtrim($tags,"|");
-        $tags=mysql_real_escape_string($tags);
+        //$tags=mysql_real_escape_string($tags);
         $q1 = mysql_query("insert into comment(`content`,`tags`) values('$comments','$tags')");
         echo '<script language="javascript">';
         echo 'alert("Success!");';
