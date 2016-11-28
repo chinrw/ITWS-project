@@ -46,13 +46,15 @@
       <div>
        <h1>Past Content</h1>
        <form action="">
-        <input type="checkbox" name="vehicle" value="Love">Love
-        <input type="checkbox" name="vehicle" value="Family">Family
-        <input type="checkbox" name="vehicle" value="Pets">Pets
-        <input type="checkbox" name="vehicle" value="School">School
-        <input type="checkbox" name="vehicle" value="Work">Work
-        <input type="checkbox" name="vehicle" value="Children">Children
-        <button class="sortButton" type="button">Sort By Tag(s)</button>
+        <input type="checkbox" name="sorttags" value="Love">Love
+        <input type="checkbox" name="sorttags" value="Family">Family
+        <input type="checkbox" name="sorttags" value="Pets">Pets
+        <input type="checkbox" name="sorttags" value="School">School
+        <input type="checkbox" name="sorttags" value="Work">Work
+        <input type="checkbox" name="sorttags" value="Children">Children
+        <button class="sortButton" type="button" id="sortButton">Sort By Tag(s)</button>
+        <button class="sortButton" type="button" id="reset">Show all</button>
+
       </form>
       </div>
 
@@ -67,10 +69,22 @@
                 $datum["content"] = $row["content"];
                 $datum["time"]  = $row["time"];
                 $datum["tags"]  = $row["tags"];
+
+                $tagstr = str_replace("|"," ",$datum["tags"]);
+                
+                
         ?>
 
-        <div class="content">
+        <div class="<?php echo 'content '.$tagstr; ?>">
           <p><?php echo $datum["content"];?></p>
+          <p style="font-size: 0.9em"><?php 
+            if ($tagstr == "") {
+              $tagstr = "No tags";
+            } else{
+              $tagstr = "TAG: ".$tagstr;
+            }
+            echo $tagstr;
+          ?></p>
           <Span id="date" ><?php echo $datum["time"];?></span>
           <button class="flag"  type="submit" >Flag</button>
           <div style= "clear:both" ></div>
@@ -90,7 +104,7 @@
       <a href="index.php" id="home">Home</a>
     </footer>
 
-<<<<<<< HEAD
+
 <?php
 
     function injectChk($sql_str) { 
@@ -105,32 +119,29 @@
 
 
     if (isset($_POST['submit'])) {
-        $comments = injectChk($_POST['comments']);
+        $comments = $_POST['comments'];
         $tags = "";
         if(!empty($_POST['vehicle'])) {
-          // Counting number of checked checkboxes.
-            // $checked_count = count($_POST['vehicle']);
-            // echo "You have selected following ".$checked_count." option(s): <br/>";
           // Loop to store and display values of individual checked checkbox.
             foreach($_POST['vehicle'] as $selected) {
-              $tags=$tags.$selected."*&^%|";
+              $tags=$tags.$selected."|";
             }
         }else{
             $tags = "";
         }
-        $tags=rtrim($tags,"*&^%|");
-
+        $tags=rtrim($tags,"|");
+        $tags=mysql_real_escape_string($tags);
         $q1 = mysql_query("insert into comment(`content`,`tags`) values('$comments','$tags')");
         echo '<script language="javascript">';
-        echo 'alert("Success!")';
+        echo 'alert("Success!");';
+        echo 'window.location="index.php"';
         echo '</script>';
     }
 
 
 ?>
     
-=======
->>>>>>> master
+
   </body>
 
 </html>
