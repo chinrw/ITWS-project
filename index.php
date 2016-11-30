@@ -133,16 +133,6 @@
 
   <?php
 
-  function injectChk($sql_str) { 
-    $check = eregi('select|insert|update|delete|\'|\/\*|\*|\.\.\/|\.\/|union|into|load_file|outfile', $sql_str);
-    if ($check) {
-      echo('failed');
-      exit ();
-    } else {
-      return $sql_str;
-    }
-  }
-
 
   if (isset($_POST['submit'])) {
     //submit comments-------------------------------------
@@ -164,7 +154,7 @@
             //$tags=mysql_real_escape_string($tags);
         $q1 = mysql_query("insert into comment(`content`,`tags`) values('$comments','$tags')");
         echo '<script language="javascript">';
-        echo 'alert("Success!");';
+        echo 'alert("Your content has been submitted!");';
         echo 'window.location="index.php"';
         echo '</script>';
       }
@@ -177,7 +167,7 @@
       $uid = $_POST['uid'];
       $q2 = mysql_query("update comment set flag = flag + 1 where id='$uid'");
       echo '<script language="javascript">';
-      echo 'alert("Success!");';
+      echo 'alert("You have successfully flagged a content!");';
       echo 'window.location="index.php"';
       echo '</script>';
 
