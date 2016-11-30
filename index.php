@@ -93,7 +93,7 @@
     <div class="<?php echo 'content '.$tagstr; ?>">
     <?php
         if ($datum["flag"] == 1) {
-          echo "<p style='color:red; font-size:0.9em'>This post has been flagged once</p>";
+          echo "<p style='color:red; font-size:0.9em'>This post has been flagged once.</p>";
         }
     ?>
       <p><?php echo $datum["content"];?></p>
