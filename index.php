@@ -100,7 +100,7 @@
       <p style="font-size: 0.9em">
         <?php 
         if ($tagstr == "notag") {
-          $tagstr = "No tags";
+          $tagstr = "No tag";
         } else{
           $tagstr = "TAG: ".$tagstr;
         }
