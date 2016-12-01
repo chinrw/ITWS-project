@@ -6,6 +6,13 @@ function clearComments(textVar){
 	}
 }
 
+function checkinput(){
+  if(document.getElementById("comments").value == "..."){
+    alert("Please enter some words!");
+    return false;
+  }
+}
+
 $(document).ready(function(){
 	$('.flag').click(function(){
 		if ($(this).hasClass("flagged")){

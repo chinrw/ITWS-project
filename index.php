@@ -21,9 +21,9 @@
   <div id="bodyBlock">
     <h1><a href="index.php"><img id="logo" src="logo.gif"></a>Just putting it out there</h1>
     <div id="wholeBox" >
-     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return checkinput()" >
       <div id="commentBox">
-        <label for="comments" class="field">What is on you're mind?</label>
+        <label for="comments" class="field">What is on your mind?</label>
         <div class="value"> <textarea rows="4" name="comments" id="comments" onblur="return addingtextbackin(this)" onclick="return clearComments(this)">...</textarea></div>
       </div>
 
@@ -118,9 +118,9 @@
       echo '</form>';
       }}
       ?>
-
-
     </div>
+
+    
     <div style="clear: both"></div>
   </div>
 
@@ -138,9 +138,6 @@
     //submit comments-------------------------------------
     if(isset($_POST['comments'])){
       $comments = $_POST['comments'];
-      if ($comments == "...") {
-        echo '<script language="javascript">alert("Please enter some words!");</script>';
-      }else{
         $tags = "";
         if(!empty($_POST['vehicle'])) {
             // Loop to store and display values of individual checked checkbox.
@@ -157,7 +154,6 @@
         echo 'alert("Your content has been submitted!");';
         echo 'window.location="index.php"';
         echo '</script>';
-      }
 
     }
     //submit comments end-----------------------------------------
