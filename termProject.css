@@ -6,9 +6,10 @@ html{
 
 body{
 	font-family: Arial, Helvetica, sans-serif; 
-	background-image: url("background.png") no-repeat center center fixed; 
+	background-image: url("background.png");
+	background-repeat: no-repeat;
+	background-size: 50% 60%; /* X,Y width Height */
 	background-position: right bottom;
-    background-size: 50% 60%;
 	background-attachment: fixed;
 	background-color: #cccccc; /*light Grey*/
 	width: 800px;
