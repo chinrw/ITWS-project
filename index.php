@@ -73,7 +73,7 @@
 <div id="pastEntries">
 
  <?php
- $display_query = mysql_query("select * from comment order by id desc;");
+ $display_query = mysql_query("select * from comment where flag < 2 order by id desc;");
  while($row= mysql_fetch_array($display_query)) {
   $datum= array();
   $datum["id"] = $row["id"];
@@ -81,7 +81,6 @@
   $datum["time"]  = $row["time"];
   $datum["tags"]  = $row["tags"];
   $datum["flag"]  = $row["flag"];
-  if ($datum["flag"] < 2) {
     $tagstr = str_replace("|"," ",$datum["tags"]);
     if ($tagstr == "") {
       $tagstr = "notag";
@@ -116,7 +115,7 @@
       </div>
       <?php
       echo '</form>';
-      }}
+      }
       ?>
     </div>
 
