@@ -4,22 +4,22 @@
 
 <head>
   <?php
-  include('conn.php');
+  include('resources/conn.php');
   mysql_query("set names utf8");
   mysql_set_charset('utf8');
   ?>
   <title>Term Project</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <link href="termProject.css" rel="stylesheet" type="text/css"/>
+  <link href="resources/termProject.css" rel="stylesheet" type="text/css"/>
   <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
-  <script src="jquery-3.1.1.min.js" ></script>
-  <script type="text/javascript" src="termProject.js"> </script>
+  <script src="resources/jquery-3.1.1.min.js" ></script>
+  <script type="text/javascript" src="resources/termProject.js"> </script>
 </head>
 
 <body>
 
   <div id="bodyBlock">
-    <h1><a href="index.php"><img id="logo" src="logo.gif"></a>Just putting it out there</h1>
+    <h1><a href="index.php"><img id="logo" src="resources/logo.gif"></a>Just putting it out there</h1>
     <div id="wholeBox" >
      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return checkinput()" >
       <div id="commentBox">
@@ -37,7 +37,7 @@
         <input type="checkbox" name="vehicle[]" value="Children">Children
         <!--<button class="submitButton" type="button" onclick="saveUserInfo(); ">Submit</button>  -->
         <input class="submitButton" type="submit" value="Submit" name="submit"/>
-        
+
       </div>
     </form>
 
@@ -97,7 +97,7 @@
     ?>
       <p><?php echo $datum["content"];?></p>
       <p style="font-size: 0.9em">
-        <?php 
+        <?php
         if ($tagstr == "notag") {
           $tagstr = "No tag";
         } else{
@@ -110,7 +110,7 @@
         //echo "<button class='flag' onclick='javascript:document.myform".$row["id"].".submit()'>Flag</button>"
         echo "<input type='submit' class='flag' value='Flag' name='submit' />";
         ?>
-        
+
         <div style= "clear:both" ></div>
       </div>
       <?php
@@ -119,7 +119,7 @@
       ?>
     </div>
 
-    
+
     <div style="clear: both"></div>
   </div>
 
@@ -178,5 +178,3 @@
 </body>
 
 </html>
-
-
